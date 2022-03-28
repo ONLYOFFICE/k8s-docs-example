@@ -1,0 +1,29 @@
+---
+product:
+  name: onlyoffice
+
+example:
+  replicas: 1
+  containerImage: onlyoffice/docs-example:7.0.1.37
+  imagePullPolicy: IfNotPresent
+  resources:
+    ##Example:
+    ##requests:
+    ##  memory: "128Mi"
+    ##  cpu: "100m"
+    requests: {}
+    ##limits:
+    ##  memory: "128Mi"
+    ##  cpu: "250m"
+    limits: {}
+
+jwt:
+  enabled: true
+  secret: MYSECRET
+  header: Authorization
+  inBody: false
+
+securityContext:
+  example:
+    runAsUser: 1001
+    runAsGroup: 1001

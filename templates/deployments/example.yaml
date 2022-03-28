@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example
+  labels:
+    app: example
+spec:
+  replicas: {{ .value.example.replicas }}
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      {{- if .Values.securityContext.enabled }}
+      securityContext:
+        runAsUser: {{ .Values.securityContext.example.runAsUser }}
+        runAsGroup: {{ .Values.securityContext.example.runAsGroup }}
+      {{- end }}
+      containers:
+        - name: example
+          image: {{ .Values.example.containerImage }}
+          imagePullPolicy: {{ .Values.example.imagePullPolicy }}
+          ports:
+            - containerPort: 3000
+          resources: {{- toYaml .Values.example.resources | nindent 12 }}
+          envFrom:
+          - secretRef:
+              name: jwt
+          - configMapRef:
+              name: example
