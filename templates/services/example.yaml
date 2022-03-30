@@ -2,14 +2,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: example-service
+  name: example
 spec:
   ports:
-    - protocol: TCP
-      port: 80
+    - name: http
+      protocol: TCP
+      port: {{ .Values.service.port }}
       targetPort: 3000
   selector:
     app: example
-  type: LoadBalancer
-  externalIPs:
-    - {{ .Values.service.externalIP }}
+  type: {{ .Value.service.type }}

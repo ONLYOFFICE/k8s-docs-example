@@ -25,8 +25,8 @@ example:
     limits: {}
 
 service:
-  ### Enter the address to access the example service 
-  externalIP:    
+  port: 3000
+  type: LoadBalancer
 
 jwt:
   enabled: false
