@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -5,7 +6,7 @@ metadata:
   labels:
     app: example
 spec:
-  replicas: {{ .value.example.replicas }}
+  replicas: {{ .Values.example.replicas }}
   selector:
     matchLabels:
       app: example
@@ -19,6 +20,10 @@ spec:
         runAsUser: {{ .Values.securityContext.example.runAsUser }}
         runAsGroup: {{ .Values.securityContext.example.runAsGroup }}
       {{- end }}
+      volumes:
+        - name: example-files
+          persistentVolumeClaim:
+            claimName: examplepvc
       containers:
         - name: example
           image: {{ .Values.example.containerImage }}
@@ -31,3 +36,6 @@ spec:
               name: jwt
           - configMapRef:
               name: example
+          volumeMounts:
+          - name: example-files
+            mountPath: /var/lib/{{ .Values.product.name }}/documentserver/App_Data/cache/files
