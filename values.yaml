@@ -29,7 +29,7 @@ service:
   externalIP:    
 
 jwt:
-  enabled: true
+  enabled: false
   secret: MYSECRET
   header: Authorization
   inBody: false
