@@ -53,10 +53,10 @@ To deploy Docs-example with the release name `docs-example`:
 
 ```bash
 
-$ helm install docs-example ./
+$ helm install docs-example ./ --set example.dsUrl=http://<ip>/
 ```
 
-The command deploys DocumentServer on the Kubernetes cluster in the default configuration. The Parameters section lists the parameters that can be configured during installation.
+The command deploys docs-example on the Kubernetes cluster with the URL configuration of your ONLYOFFICE Docs
 
 ### 4. Uninstall ONLYOFFICE Docs-example
 
@@ -71,23 +71,67 @@ $ helm delete docs-example
 
 Below are the options available for configuration before deploying docs-example to a cluster: 
 
-`persistence.storageClass` storage class name default: `nfs`
+`persistence.storageClass` storage class name by default: `nfs`
 
-`persistence.size` storage volume size default: `8Gi`
+`persistence.size` storage volume size by default: `8Gi`
 
-`example.containerImage` example container image name default: `onlyoffice/docs-example:latest`
-`example.imagePullPolicy` example container image pull policy default: `IfNotPresent`
-`example.resources.requests.memory` memory request default: 
-`example.resources.requests.cpu` cpu request default: 
-`example.resources.limits.memory` memory limit default: 
-`example.resources.limits.cpu` cpu limit defalut: 
-`jwt.enabled` jwt enabling parameter default:
-`jwt.secret` jwt secret default: 
-`jwt.header` Defines the http header that will be used to send the JSON Web Token default: 
-`jwt.inBody` Specifies the enabling the token validation in the request body to the ONLYOFFICE Docs default: 
-`service.type` docs-example service type default: `LoadBalancer`
-`service.port` docs-example service port default: `3000`
-`ingress.enabled` installation of ingress service defaule: `false`
-`ingress.host` Ingress hostname for the documentserver ingress default:	`""`
-`ingress.ssl.enabled` installation ssl for ingress service default: `false`
-`ingress.ssl.secret` secret name for ssl default: `tls`
+`example.dsUrl` Specifies the address of your ONLYOFFICE Docs, default: http://onlyoffice-docs-address/
+
+`example.replicas` docs-example replicas quantity by default: `1`
+
+`example.containerImage` example container image name by default: `onlyoffice/docs-example:latest`
+
+`example.imagePullPolicy` example container image pull policy by default: `IfNotPresent`
+
+`example.resources.requests.memory` memory request by default: `128Mi`
+
+`example.resources.requests.cpu` cpu request by default: `100m`
+
+`example.resources.limits.memory` memory limit by default: `128Mi`
+
+`example.resources.limits.cpu` cpu limit by defalut: `250m`
+
+`jwt.enabled` jwt enabling parameter by default: `true`
+
+`jwt.secret` jwt secret by default: `MYSECRET`
+
+`jwt.header` Defines the http header that will be used to send the JSON Web Token by default: `Authorization`
+
+`jwt.inBody` Specifies the enabling the token validation in the request body to the ONLYOFFICE Docs by default: `false` 
+
+`service.type` docs-example service type by default: `ClusterIP`
+
+`service.port` docs-example service port by default: `3000`
+
+`ingress.enabled` installation of ingress service by defaule: `false`
+
+`ingress.host` Ingress hostname for the documentserver ingress by default:	`""`
+
+`ingress.ssl.enabled` installation ssl for ingress service by default: `false`
+
+`ingress.ssl.secret` secret name for ssl by default: `tls`
+
+`securityContext.enabled` Enable security context for the pods by default: `false`
+
+`securityContext.example.runAsUser` Set example containers' Security Context runAsUser by default :`1001`
+
+`securityContext.example.runAsGroup` Set example containers' Security Context runAsGroup by default `1001
+
+##5 Expose Docs-example
+
+By default, the docs-example is published local using default serviceType: `ClusterIP` to deploy external use the command 
+
+```bash
+
+$ helm install docs-example ./ --set example.dsUrl=http://<ip>/ --set service.type=LoadBalancer
+```
+
+#### 5.1 Expose Docs-example via Ingress
+
+To install the Nginx Ingress Controller to your cluster, run the following command:
+
+```bash
+$ helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true,controller.replicaCount=2
+```
+
+See more detail about installing Nginx Ingress via Helm [here](https://github.com/kubernetes/ingress-nginx/tree/master/charts/ingress-nginx).
