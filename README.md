@@ -117,7 +117,7 @@ Below are the options available for configuration before deploying docs-example 
 
 `securityContext.example.runAsGroup` Set example containers' Security Context runAsGroup by default: `1001
 
-## 5 Expose Docs-example
+### 6 Expose Docs-example
 
 By default, the docs-example is published local using default serviceType: `ClusterIP` to deploy external use the command 
 
@@ -126,7 +126,7 @@ By default, the docs-example is published local using default serviceType: `Clus
 $ helm install docs-example ./ --set example.dsUrl=http://<ip>/ --set service.type=LoadBalancer
 ```
 
-#### 5.1 Expose Docs-example via Ingress
+#### 6.1 Expose Docs-example via Ingress
 
 To install the Nginx Ingress Controller to your cluster, run the following command:
 
