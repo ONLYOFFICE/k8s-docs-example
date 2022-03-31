@@ -23,7 +23,7 @@ spec:
       volumes:
         - name: example-files
           persistentVolumeClaim:
-            claimName: examplePvc
+            claimName: example-pvc
       containers:
         - name: example
           image: {{ .Values.example.containerImage }}

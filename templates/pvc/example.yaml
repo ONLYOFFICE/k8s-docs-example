@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: examplePvc
+  name: example-pvc
 spec:
   storageClassName: {{ .Values.persistence.storageClass }}
   accessModes:
