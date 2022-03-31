@@ -23,9 +23,9 @@ example:
     limits: {}
 
 service:
+  type: ClusterIP
   port: 3000
-  type: LoadBalancer
-
+  
 jwt:
   enabled: false
   secret: MYSECRET
