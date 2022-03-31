@@ -6,7 +6,7 @@ This repository contains a set of files to deploy ONLYOFFICE Docs-example into a
 
 - To install, you need a kubernetes cluster, for installation, read the [instructions](https://kubernetes.io/docs/setup/) 
 - You will need kubectl installed, you can read the instructions at this [link](https://kubernetes.io/docs/tasks/tools/).
-- You will also need Helm v3. For installation, read the [instructions]((https://helm.sh/docs/intro/install/)
+- You will also need Helm v3. For installation, read the [instructions](https://helm.sh/docs/intro/install/)
 
 ## Installing dependencies  
 
