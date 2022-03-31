@@ -117,7 +117,7 @@ Below are the options available for configuration before deploying docs-example 
 
 `securityContext.example.runAsGroup` Set example containers' Security Context runAsGroup by default: `1001
 
-##5 Expose Docs-example
+## 5 Expose Docs-example
 
 By default, the docs-example is published local using default serviceType: `ClusterIP` to deploy external use the command 
 
