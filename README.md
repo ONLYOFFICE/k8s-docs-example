@@ -47,7 +47,45 @@ Configure a Persistent Volume Claim
 
 Note: The default `nfs` Persistent Volume Claim is 8Gi. You can change it in the `values.yaml` file in the `persistence.storageClass` and `persistence.size` section. It should be less than `PERSISTENT_SIZE` at least by about 5%. It's recommended to use 8Gi or more for persistent storage for every 100 active users of ONLYOFFICE Docs.
 
+### 3. Deploy ONLYOFFICE Docs-example
 
+To deploy Docs-example with the release name `docs-example`:
 
+```bash
 
+$ helm install docs-example ./
+```
 
+The command deploys DocumentServer on the Kubernetes cluster in the default configuration. The Parameters section lists the parameters that can be configured during installation.
+
+### 4. Uninstall ONLYOFFICE Docs-example
+
+To uninstall/delete the `documentserver` deployment:
+
+```bash
+$ helm delete docs-example
+
+```
+
+### 5. Avalivable parameters
+
+Below are the options available for configuration before deploying docs-example to a cluster: 
+
+`persistence.storageClass` storage class name default: `nfs`
+`persistence.size` storage volume size default: `8Gi`
+`example.containerImage` example container image name default: `onlyoffice/docs-example:latest`
+`example.imagePullPolicy` example container image pull policy default: `IfNotPresent`
+`example.resources.requests.memory` memory request default: 
+`example.resources.requests.cpu` cpu request default: 
+`example.resources.limits.memory` memory limit default: 
+`example.resources.limits.cpu` cpu limit defalut: 
+`jwt.enabled` jwt enabling parameter default:
+`jwt.secret` jwt secret default: 
+`jwt.header` Defines the http header that will be used to send the JSON Web Token default: 
+`jwt.inBody` Specifies the enabling the token validation in the request body to the ONLYOFFICE Docs default: 
+`service.type` docs-example service type default: `LoadBalancer`
+`service.port` docs-example service port default: `3000`
+`ingress.enabled` installation of ingress service defaule: `false`
+`ingress.host` Ingress hostname for the documentserver ingress default:	`""`
+`ingress.ssl.enabled` installation ssl for ingress service default: `false`
+`ingress.ssl.secret` secret name for ssl default: `tls`
