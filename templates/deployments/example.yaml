@@ -23,7 +23,7 @@ spec:
       volumes:
         - name: example-files
           persistentVolumeClaim:
-            claimName: examplepvc
+            claimName: examplePvc
       containers:
         - name: example
           image: {{ .Values.example.containerImage }}
@@ -38,4 +38,4 @@ spec:
               name: example
           volumeMounts:
           - name: example-files
-            mountPath: /var/lib/{{ .Values.product.name }}/documentserver/App_Data/cache/files
+            mountPath: /var/lib/{{ .Values.product.name}}/documentserver-example/files
