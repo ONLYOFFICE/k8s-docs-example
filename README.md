@@ -72,7 +72,9 @@ $ helm delete docs-example
 Below are the options available for configuration before deploying docs-example to a cluster: 
 
 `persistence.storageClass` storage class name default: `nfs`
+
 `persistence.size` storage volume size default: `8Gi`
+
 `example.containerImage` example container image name default: `onlyoffice/docs-example:latest`
 `example.imagePullPolicy` example container image pull policy default: `IfNotPresent`
 `example.resources.requests.memory` memory request default: 
