@@ -60,7 +60,7 @@ The command deploys docs-example on the Kubernetes cluster with the URL configur
 
 ### 4. Uninstall ONLYOFFICE Docs-example
 
-To uninstall/delete the `documentserver` deployment:
+To uninstall/delete the `docs-example` deployment:
 
 ```bash
 $ helm delete docs-example
@@ -105,7 +105,7 @@ Below are the options available for configuration before deploying docs-example 
 
 `ingress.enabled` installation of ingress service by defaule: `false`
 
-`ingress.host` Ingress hostname for the documentserver ingress by default:	`""`
+`ingress.host` Ingress hostname for the docs-example ingress by default: `""`
 
 `ingress.ssl.enabled` installation ssl for ingress service by default: `false`
 
@@ -115,7 +115,7 @@ Below are the options available for configuration before deploying docs-example 
 
 `securityContext.example.runAsUser` Set example containers' Security Context runAsUser by default :`1001`
 
-`securityContext.example.runAsGroup` Set example containers' Security Context runAsGroup by default `1001
+`securityContext.example.runAsGroup` Set example containers' Security Context runAsGroup by default: `1001
 
 ##5 Expose Docs-example
 
