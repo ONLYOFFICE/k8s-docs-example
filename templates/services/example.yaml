@@ -11,4 +11,4 @@ spec:
       targetPort: 3000
   selector:
     app: example
-  type: {{ .Value.service.type }}
+  type: {{ .Values.service.type }}
