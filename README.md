@@ -54,7 +54,7 @@ To deploy Docs-example with the release name `docs-example`:
 
 ```bash
 
-$ helm install onlyoffice/docs-example --set example.dsUrl=http://<ip>/
+$ helm install docs-example onlyoffice/docs-example --set example.dsUrl=http://<ip>/
 ```
 
 The command deploys docs-example on the Kubernetes cluster with the URL configuration of your ONLYOFFICE Docs
