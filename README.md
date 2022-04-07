@@ -18,6 +18,7 @@ To install databases and nfs server you need to add repositories:
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 $ helm repo add stable https://charts.helm.sh/stable
+$ helm repo add onlyoffice https://download.onlyoffice.com/charts
 $ helm repo update
 ```
 ### 2. Install Persistent Storage
@@ -53,7 +54,7 @@ To deploy Docs-example with the release name `docs-example`:
 
 ```bash
 
-$ helm install docs-example ./ --set example.dsUrl=http://<ip>/
+$ helm install onlyoffice/docs-example --set example.dsUrl=http://<ip>/
 ```
 
 The command deploys docs-example on the Kubernetes cluster with the URL configuration of your ONLYOFFICE Docs
