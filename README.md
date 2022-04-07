@@ -75,7 +75,7 @@ Below are the options available for configuration before deploying docs-example 
 
 `persistence.size` storage volume size by default: `8Gi`
 
-`example.dsUrl` Specifies the address of your ONLYOFFICE Docs, default: http://onlyoffice-docs-address/
+`example.dsUrl` Specifies the address of your ONLYOFFICE Docs, default: `http://onlyoffice-docs-address/`
 
 `example.replicas` docs-example replicas quantity by default: `1`
 
