@@ -3,6 +3,7 @@
 # negation (prefixed with !). Only one pattern per line.
 .DS_Store
 # Common VCS dirs
+.github/
 .git/
 .gitignore
 .bzr/
@@ -11,6 +12,7 @@
 .hgignore
 .svn/
 # Common backup files
+*.MD
 *.swp
 *.bak
 *.tmp
