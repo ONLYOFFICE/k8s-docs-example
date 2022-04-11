@@ -33,7 +33,7 @@ spec:
           resources: {{- toYaml .Values.example.resources | nindent 12 }}
           envFrom:
           - secretRef:
-              name: jwt
+              name: {{ template "example.jwt.secretName" . }}
           - configMapRef:
               name: example
           volumeMounts:
