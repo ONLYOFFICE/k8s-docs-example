@@ -100,6 +100,8 @@ Below are the options available for configuration before deploying docs-example 
 
 `jwt.inBody` Specifies the enabling the token validation in the request body to the ONLYOFFICE Docs by default: `false` 
 
+`jwt.existingSecret` The name of an existing secret containing variables for jwt. If not specified, a secret named `example.jwt` will be created
+
 `service.type` docs-example service type by default: `ClusterIP`
 
 `service.port` docs-example service port by default: `3000`
