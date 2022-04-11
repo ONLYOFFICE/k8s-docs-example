@@ -126,7 +126,7 @@ By default, the docs-example is published local using default serviceType: `Clus
 
 ```bash
 
-$ helm install docs-example ./ --set example.dsUrl=http://<ip>/ --set service.type=LoadBalancer
+$ helm install onlyoffice/docs-example --set example.dsUrl=http://<ip>/ --set service.type=LoadBalancer
 ```
 
 #### 6.1 Expose Docs-example via Ingress
