@@ -1,0 +1,47 @@
+---
+product:
+  name: onlyoffice
+
+persistence:
+  storageClass: "nfs"
+  size: 8Gi
+  
+example: 
+  dsUrl: http://onlyoffice-docs-address/
+  replicas: 1
+  containerImage: onlyoffice/docs-example:latest
+  imagePullPolicy: IfNotPresent
+  resources:
+    ##Example:
+    ##requests:
+    ##  memory: "128Mi"
+    ##  cpu: "100m"
+    requests: {}
+    ##limits:
+    ##  memory: "128Mi"
+    ##  cpu: "250m"
+    limits: {}
+
+service:
+  type: ClusterIP
+  port: 3000
+  
+jwt:
+  enabled: false
+  secret: MYSECRET
+  header: Authorization
+  inBody: false
+  existingSecret: ""
+
+securityContext:
+  enabled: false
+  example:
+    runAsUser: 1001
+    runAsGroup: 1001
+
+ingress:
+  enabled: false
+  host: ""
+  ssl:
+    enabled: false
+    secret: tls

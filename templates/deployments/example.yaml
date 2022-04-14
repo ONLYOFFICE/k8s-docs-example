@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example
+  labels:
+    app: example
+spec:
+  replicas: {{ .Values.example.replicas }}
+  selector:
+    matchLabels:
+      app: example
+  template:
+    metadata:
+      labels:
+        app: example
+    spec:
+      {{- if .Values.securityContext.enabled }}
+      securityContext:
+        runAsUser: {{ .Values.securityContext.example.runAsUser }}
+        runAsGroup: {{ .Values.securityContext.example.runAsGroup }}
+      {{- end }}
+      volumes:
+        - name: example-files
+          persistentVolumeClaim:
+            claimName: example-pvc
+      containers:
+        - name: example
+          image: {{ .Values.example.containerImage }}
+          imagePullPolicy: {{ .Values.example.imagePullPolicy }}
+          ports:
+            - containerPort: 3000
+          resources: {{- toYaml .Values.example.resources | nindent 12 }}
+          envFrom:
+          - secretRef:
+              name: {{ template "example.jwt.secretName" . }}
+          - configMapRef:
+              name: example
+          volumeMounts:
+          - name: example-files
+            mountPath: /var/lib/{{ .Values.product.name}}/documentserver-example/files
