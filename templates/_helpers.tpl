@@ -17,3 +17,4 @@ Return true if a secret object should be created for jwt
     {{- true -}}
 {{- end -}}
 {{- end -}}
+

@@ -118,7 +118,7 @@ Below are the options available for configuration before deploying docs-example 
 
 `securityContext.example.runAsUser` Set example containers' Security Context runAsUser by default :`1001`
 
-`securityContext.example.runAsGroup` Set example containers' Security Context runAsGroup by default: `1001`
+`securityContext.example.runAsGroup` Set example containers' Security Context runAsGroup by default:`1001`
 
 ### 6 Expose Docs-example
 
