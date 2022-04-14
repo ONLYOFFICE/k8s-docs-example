@@ -1,5 +1,7 @@
 # ONLYOFFICE Docs-example for Kubernetes
 
+[![Release Chart on S3 repo](https://github.com/ONLYOFFICE/k8s-docs-example/actions/workflows/Release.yaml/badge.svg)](https://github.com/ONLYOFFICE/k8s-docs-example/actions/workflows/Release.yaml)
+
 This repository contains a set of files to deploy ONLYOFFICE Docs-example into a Kubernetes cluster.
 
 ## Introduction
