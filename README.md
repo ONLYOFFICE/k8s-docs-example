@@ -116,7 +116,7 @@ Below are the options available for configuration before deploying docs-example 
 
 `securityContext.enabled` Enable security context for the pods by default: `false`
 
-`securityContext.example.runAsUser` Set example containers' Security Context runAsUser by default :`1001`
+`securityContext.example.runAsUser` Set example containers' Security Context runAsUser by default:`1001`
 
 `securityContext.example.runAsGroup` Set example containers' Security Context runAsGroup by default: `1001`
 
