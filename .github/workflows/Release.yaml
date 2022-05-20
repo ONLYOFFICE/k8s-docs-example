@@ -22,7 +22,7 @@ jobs:
       - name: Helm release
         uses: shellbear/helm-release-action@v0.1
         with:
-          repo: ${{ secrets.AWS_BUCKET_URL }}/charts/
+          repo: ${{ secrets.AWS_BUCKET_URL }}/charts/stable/
           chart: ./
 
       - name: Reindex index.yaml
