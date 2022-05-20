@@ -20,7 +20,7 @@ To install databases and nfs server you need to add repositories:
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 $ helm repo add stable https://charts.helm.sh/stable
-$ helm repo add onlyoffice https://download.onlyoffice.com/charts
+$ helm repo add onlyoffice https://download.onlyoffice.com/charts/stable
 $ helm repo update
 ```
 ### 2. Install Persistent Storage
