@@ -14,13 +14,13 @@ This repository contains a set of files to deploy ONLYOFFICE Docs-example into a
 
 ### 1. Add Helm repositories
 
-To install databases and nfs server you need to add repositories:
+To install databases nfs server and docs-example you need to add repositories:
 
 ```bash
+$ helm repo add onlyoffice https://download.onlyoffice.com/charts/stable
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 $ helm repo add stable https://charts.helm.sh/stable
-$ helm repo add onlyoffice https://download.onlyoffice.com/charts
 $ helm repo update
 ```
 ### 2. Install Persistent Storage
